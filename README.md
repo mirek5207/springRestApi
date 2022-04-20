@@ -18,6 +18,7 @@ App written to learn Rest api </br>
 *Maven</br>
 *Lombok</br>
 *H2</br>
+*Swagger(Open api)
 
 
 Author: Mirosław Karwowski</br>
