@@ -60,6 +60,11 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>8.5.9</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -84,7 +89,6 @@
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
