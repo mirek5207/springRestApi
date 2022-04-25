@@ -1,22 +1,33 @@
 package com.example.springRestApi.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name = "customer")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "customerId", nullable = false)
     private Long id;
-    @Column(nullable = false,unique = true)
-    private String login;
-    @Column(nullable = false)
-    private String password;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "surname", nullable = false)
+    private String surname;
+
+    @Column(name = "phoneNumber", nullable = false, length = 9)
+    private String phoneNumber;
+
+    @OneToMany(mappedBy = "customer")
+    Set<Order> orders = new HashSet<>();
+
 }
