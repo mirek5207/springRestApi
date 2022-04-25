@@ -14,7 +14,12 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer createCustomer(CustomerRequest customerRequest) {
-        Customer customer = new Customer(null,customerRequest.getLogin(),customerRequest.getPassword());
+        Customer customer = Customer.builder()
+                .id(null)
+                .name(customerRequest.getName())
+                .surname(customerRequest.getSurname())
+                .phoneNumber(customerRequest.getPhoneNumber())
+                .build();
         customerRepository.save(customer);
         return customer;
     }
@@ -27,8 +32,9 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer updateCustomer(CustomerRequest customerRequest, Long id) {
         Customer customer = customerRepository.findById(id).get();
-        customer.setLogin(customerRequest.getLogin());
-        customer.setPassword(customerRequest.getPassword());
+        customer.setName(customerRequest.getName());
+        customer.setSurname(customerRequest.getSurname());
+        customer.setPhoneNumber(customerRequest.getPhoneNumber());
         customerRepository.save(customer);
         return customer;
     }
