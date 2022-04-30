@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.http.ResponseEntity.ok;
+
 @RestController
 @AllArgsConstructor
 public class PizzaController {
@@ -19,11 +21,11 @@ public class PizzaController {
     @PostMapping(value = "/pizza", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Pizza> postPizza(@RequestBody PizzaRequest pizzaRequest){
         Pizza pizza = pizzaService.postPizza(pizzaRequest);
-        return ResponseEntity.ok(pizza);
+        return ok(pizza);
     }
     @GetMapping(value = "/pizza/{id}")
     public ResponseEntity<Pizza> getPizzaById(Long id){
         Pizza pizza = pizzaService.getPizza(id);
-        return ResponseEntity.ok(pizza);
+        return ok(pizza);
     }
 }
