@@ -10,6 +10,7 @@ import com.example.springRestApi.request.OrderRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,10 +30,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Orders postOrder(OrderRequest orderRequest, Long customerId, Set<Long> pizzaSet) {
-        Set<Pizza> pizzaObject = new HashSet<>();
+    public Orders postOrder(OrderRequest orderRequest, Long customerId) {
+        List<Pizza> pizzaObject = new ArrayList<>();
+        List<Long> pizzaIds = orderRequest.getPizzaId();
         Customer customer = customerRepository.findById(customerId).get();
-        for (Long pizzaId:pizzaSet) {
+        for (Long pizzaId:pizzaIds) {
             pizzaObject.add(pizzaRepository.findById(pizzaId).get());
         }
         Orders orders = Orders.builder()

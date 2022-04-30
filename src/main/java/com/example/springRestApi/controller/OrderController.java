@@ -24,8 +24,8 @@ public class OrderController {
     }
 
     @PostMapping(value = "/order/{customerId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Orders> postOrder(@RequestBody OrderRequest orderRequest, Long customerId, Set<Long> pizzaId){
-        Orders orders = orderService.postOrder(orderRequest, customerId, pizzaId);
+    public ResponseEntity<Orders> postOrder(@RequestBody OrderRequest orderRequest, Long customerId){
+        Orders orders = orderService.postOrder(orderRequest, customerId);
         return ok(orders);
     }
     @PutMapping(value = "/order/{id}")

@@ -5,6 +5,7 @@ import com.example.springRestApi.entity.Pizza;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
+import java.util.List;
 import java.util.Set;
 
 @Jacksonized
@@ -14,4 +15,5 @@ public class OrderRequest {
     private String city;
     private String street;
     private String houseNumber;
+    private List<Long> pizzaId;
 }

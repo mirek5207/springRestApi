@@ -12,7 +12,7 @@ public interface OrderService {
 
     Orders getOrder(Long id);
 
-    Orders postOrder(OrderRequest orderRequest, Long customerId, Set<Long> pizzaSet);
+    Orders postOrder(OrderRequest orderRequest, Long customerId);
 
     Orders updateOrder(OrderRequest orderRequest, Long id);
 
