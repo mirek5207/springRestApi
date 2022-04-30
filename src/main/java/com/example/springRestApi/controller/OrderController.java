@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
@@ -22,7 +24,7 @@ public class OrderController {
     }
 
     @PostMapping(value = "/order/{customerId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Orders> postOrder(@RequestBody OrderRequest orderRequest, Long customerId,Long pizzaId){
+    public ResponseEntity<Orders> postOrder(@RequestBody OrderRequest orderRequest, Long customerId, Set<Long> pizzaId){
         Orders orders = orderService.postOrder(orderRequest, customerId, pizzaId);
         return ok(orders);
     }
