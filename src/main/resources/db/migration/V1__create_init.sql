@@ -21,8 +21,7 @@ CREATE TABLE `orders`
 CREATE TABLE order_pizza
 (
     order_id BIGINT NOT NULL,
-    pizza_id BIGINT NOT NULL,
-    CONSTRAINT pk_order_pizza PRIMARY KEY (order_id, pizza_id)
+    pizza_id BIGINT NOT NULL
 );
 
 CREATE TABLE pizza
