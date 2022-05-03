@@ -14,24 +14,26 @@ import static org.springframework.http.ResponseEntity.ok;
 @AllArgsConstructor
 public class CustomerController {
     private final CustomerService customerService;
-
-    @GetMapping(value = "/customer/{id}")
+    @CrossOrigin
+    @GetMapping(value = "/customer")
     public ResponseEntity<Customer> getCustomerById(Long id){
         Customer customer = customerService.getCustomer(id);
         return ok(customer);
     }
+    @CrossOrigin
     @PostMapping(value = "/customer", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Customer> postCustomer(@RequestBody CustomerRequest customerRequest){
         Customer customer = customerService.createCustomer(customerRequest);
         return ok(customer);
     }
-
-    @PutMapping(value = "customer/{id}")
+    @CrossOrigin
+    @PutMapping(value = "/customer")
     public ResponseEntity<Customer> updateDataCustomer(CustomerRequest customerRequest , Long id){
         Customer customer = customerService.updateCustomer(customerRequest, id);
         return ok(customer);
     }
-    @DeleteMapping(value = "customer/{id}")
+    @CrossOrigin
+    @DeleteMapping(value = "/customer")
     public void deleteDataCustomer(Long id){
         customerService.deleteCustomer(id);
     }
