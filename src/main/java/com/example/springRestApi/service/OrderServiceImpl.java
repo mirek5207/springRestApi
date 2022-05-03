@@ -23,6 +23,10 @@ public class OrderServiceImpl implements OrderService {
     private final CustomerRepository customerRepository;
     private final PizzaRepository pizzaRepository;
 
+    @Override
+    public List<Orders> getAllOrders() {
+        return orderRepository.findAll();
+    }
 
     @Override
     public Orders getOrder(Long id) {
