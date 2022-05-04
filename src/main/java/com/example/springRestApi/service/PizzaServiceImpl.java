@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.Order;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -31,5 +32,8 @@ public class PizzaServiceImpl implements PizzaService {
         return pizza;
     }
 
-
+    @Override
+    public List<Pizza> getAllPizza() {
+        return pizzaRepository.findAll();
+    }
 }
