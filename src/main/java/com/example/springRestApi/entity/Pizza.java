@@ -25,6 +25,9 @@ public class Pizza {
     @Column(name = "price",nullable = false)
     private String price;
 
+    @Column(name = "url", nullable = false)
+    private String url;
+
     @ManyToMany(mappedBy = "pizza")
     @JsonIgnore
     private Set<Orders> orders = new HashSet<>();

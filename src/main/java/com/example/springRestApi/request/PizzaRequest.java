@@ -8,4 +8,5 @@ import lombok.extern.jackson.Jacksonized;
 public class PizzaRequest {
     private String name;
     private String price;
+    private String url;
 }

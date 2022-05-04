@@ -29,6 +29,7 @@ CREATE TABLE pizza
     pizza_id BIGINT       NOT NULL,
     name     VARCHAR(255) NOT NULL,
     price     VARCHAR(255) NOT NULL,
+    url     VARCHAR(255) NOT NULL,
     CONSTRAINT pk_pizza PRIMARY KEY (pizza_id)
 );
 
